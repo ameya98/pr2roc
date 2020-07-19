@@ -59,3 +59,16 @@ def test_np_array():
     
     curve = Curve(points, label='Test Curve')
     check_curve(curve)
+
+def test_bad_curve():
+    with pytest.raises(ValueError):
+        points = [(0, 1)]
+        curve = Curve(points, label='Bad Curve')
+
+    with pytest.raises(ValueError):
+        points = [0, 1, 2]
+        curve = Curve(points, label='Bad Curve')
+
+    with pytest.raises(ValueError):
+        points = 1
+        curve = Curve(points, label='Bad Curve')
