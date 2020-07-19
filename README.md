@@ -28,7 +28,7 @@ The solution is to:
 * Convert the interpolated ROC curve back to PR space, giving us an interpolated PR curve.
 
 See the reference below for a more detailed description of the relationship between ROC curves and PR curves.  
-This package is essentially an implementation of the methods in the paper.
+This package is essentially an implementation of the methods in the reference.
 
 ## Usage
 
