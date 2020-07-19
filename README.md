@@ -1,6 +1,6 @@
 # roc2pr
 
-Resample and interconvert curves between ROC and PR space!  
+Resample and interconvert between ROC and PR space!  
 The only requirement is to know the proportion of actual positives to actual negatives in the dataset.
 
 ## Terminology
@@ -32,7 +32,7 @@ This package is essentially an implementation of the methods in the reference.
 
 ## Usage
 
-A snippet from [demo.ipynb](demo.ipynb):
+A snippet from [demo.ipynb](https://nbviewer.jupyter.org/github/ameya98/roc2pr/blob/master/demo.ipynb):
 
 ```python
 from roc2pr import PRCurve
