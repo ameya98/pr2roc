@@ -3,6 +3,10 @@
 Resample and interconvert between ROC and PR space!  
 The only requirement is to know the proportion of actual positives to actual negatives in the dataset.
 
+<p align="center">
+  <img width="460" height="300" src="raw.githubusercontent.com/ameya98/roc2pr/images/roc2pr.svg">
+</p>
+
 ## Terminology
 
 * **TP**: True Positives: Actual positives labelled correctly.
