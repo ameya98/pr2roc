@@ -9,7 +9,7 @@ The only requirement is to know the proportion of actual positives to actual neg
 
 ## Installation
 
-You will need to install numpy first:
+You will need to install *numpy* first:
 ```bash
 pip install numpy
 ```
