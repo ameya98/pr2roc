@@ -18,11 +18,17 @@ The only requirement is to know the proportion of actual positives to actual neg
 
 ## How does the resampling work?
 
-In ROC space, linear interpolation is valid. However, this is not true in PR space.
+There is a fundamental duality between ROC space and PR space. For a fixed dataset (specifically, a fixed ratio of actual positives to actual negatives), we can convert a ROC curve to a PR curve, and vice versa.
+
+In ROC space, linear interpolation between points on a 'discrete' ROC curve is valid, because all points on the convex hull of a ROC curve are attainable. However, linear interpolation is not justified in PR space.
+
 The solution is to:
 * Convert a PR curve to its corresponding ROC curve, using the duality between the PR and ROC spaces.
 * Interpolate the ROC curve. Here, we interpolate at equally spaced values of FPR, linearly interpolating the TPR values between adjacent points.
 * Convert the interpolated ROC curve back to PR space, giving us an interpolated PR curve.
+
+See the reference below for a more detailed description of the relationship between ROC curves and PR curves.  
+This package is essentially an implementation of the methods in the paper.
 
 ## Usage
 
@@ -61,3 +67,7 @@ pr_reconverted = roc.to_pr()
 # This should pass.
 assert allclose(pr_reconverted.points(), pr.points())
 ```
+
+## References
+
+Jesse Davis and Mark Goadrich. 2006. The relationship between Precision-Recall and ROC curves. In Proceedings of the 23rd international conference on Machine Learning (ICML ’06). Association for Computing Machinery, New York, NY, USA, 233–240. DOI:https://doi.org/10.1145/1143844.1143874
