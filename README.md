@@ -7,6 +7,13 @@ The only requirement is to know the proportion of actual positives to actual neg
   <img width="460" height="300" src="raw.githubusercontent.com/ameya98/roc2pr/images/roc2pr.svg">
 </p>
 
+## Installation
+
+Install from this GitHub repository directly:
+```bash
+pip install git+https://github.com/ameya98/roc2pr
+```
+
 ## Terminology
 
 * **TP**: True Positives: Actual positives labelled correctly.
