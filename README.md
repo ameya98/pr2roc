@@ -50,7 +50,7 @@ This package is essentially an implementation of the methods in the reference.
 
 ## Usage
 
-A snippet from [demo.ipynb](https://nbviewer.jupyter.org/github/ameya98/roc2pr/blob/master/demo.ipynb):
+Modified from [demo.ipynb](https://nbviewer.jupyter.org/github/ameya98/roc2pr/blob/master/demo.ipynb):
 
 ```python
 from roc2pr import PRCurve
@@ -75,9 +75,6 @@ roc_sampled = roc.resample(num_points=100)
 
 # Get the points (as a list of 2-tuples) on any curve with the *.points()* method.
 pr_points = pr.points()
-pr_sampled_points = pr_sampled.points()
-roc_points = roc.points()
-roc_sampled_points = roc_sampled.points()
 
 # You can re-convert the ROC curve back to a PR curve!
 pr_reconverted = roc.to_pr()
