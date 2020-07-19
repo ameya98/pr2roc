@@ -70,5 +70,6 @@ assert allclose(pr_reconverted.points(), pr.points())
 
 ## References
 
-Jesse Davis and Mark Goadrich. 2006. *The relationship between Precision-Recall and ROC curves*. In Proceedings of the 23rd international conference on Machine Learning (ICML ’06). Association for Computing Machinery, New York, NY, USA, 233–240.  
+Jesse Davis and Mark Goadrich. 2006. *The relationship between Precision-Recall and ROC curves*.  
+In Proceedings of the 23rd International Conference on Machine Learning (ICML ’06). Association for Computing Machinery, New York, NY, USA, 233–240.  
 DOI: https://doi.org/10.1145/1143844.1143874
