@@ -6,15 +6,20 @@ class Curve:
     def __init__(self, points, label=None):
         try:
             points = list(points)
-        except ValueError:
-            raise
+        except (ValueError, TypeError):
+            raise ValueError('Could not convert points to list.')
 
         if len(points) <= 1:
             raise ValueError('Need more than one point for a curve.')
 
-        points = sorted(np.array(points), key=lambda p: p[0])
-        self.x_vals = np.array([point[0] for point in points])
-        self.y_vals = np.array([point[1] for point in points])
+        try:
+            # Sort by x-value.
+            points = sorted(np.array(points), key=lambda p: p[0])
+            self.x_vals = np.array([point[0] for point in points])
+            self.y_vals = np.array([point[1] for point in points])
+        except (IndexError, TypeError):
+            raise ValueError('Points must be passed as a sequence of 2-tuples.')
+
         self.label = label
 
     # Resamples this curve along equally spaced x-values.
