@@ -1,10 +1,10 @@
-# roc2pr
+# roc2pr [![codecov](https://codecov.io/gh/ameya98/roc2pr/branch/master/graph/badge.svg)](https://codecov.io/gh/ameya98/roc2pr)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/ameya98/roc2pr/master/images/roc2pr.svg">
 </p>
 
-Resample and interconvert between ROC and PR space!  
+Resample and interconvert classifier performance between ROC and PR space!  
 The only requirement is to know the proportion of actual positives to actual negatives in the dataset.
 
 ## Installation
