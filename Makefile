@@ -3,5 +3,5 @@ include .env
 coverage:
 		coverage run -m pytest
 
-codecov:
+codecov: coverage
 		codecov --token=${CODECOV_TOKEN}
