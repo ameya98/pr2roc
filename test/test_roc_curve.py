@@ -1,3 +1,5 @@
+from __future__ import division
+
 from roc2pr import ROCCurve
 
 import numpy as np
