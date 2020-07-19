@@ -9,10 +9,17 @@ The only requirement is to know the proportion of actual positives to actual neg
 
 ## Installation
 
-Install from this GitHub repository directly:
+You will need to install numpy first:
+```bash
+pip install numpy
+```
+
+Then, install *roc2pr* from this GitHub repository directly:
 ```bash
 pip install git+https://github.com/ameya98/roc2pr
 ```
+
+Tested with Python 2.7 and 3.5.
 
 ## Terminology
 
