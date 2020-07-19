@@ -5,8 +5,6 @@ The only requirement is to know the proportion of actual positives to actual neg
 
 ## Terminology
 
-* **ROC**: Reciever Operating Characteristic.
-* **PR**: Precision-Recall.
 * **TP**: True Positives: Actual positives labelled correctly.
 * **TN**: True Negatives: Actual negatives labelled correctly.
 * **FP**: False Positives: Actual negatives labelled incorrectly as positive.
@@ -15,6 +13,8 @@ The only requirement is to know the proportion of actual positives to actual neg
 * **FPR**: False Positive Rate = FP/(FP + TN).
 * **Precision**: TP/(TP + FP).
 * **Recall**: True Positive Rate = TP/(TP + FN).
+* **ROC**: Reciever Operating Characteristic: A curve comparing the TPR (y-axis) as a function of the FPR (x-axis) for a given classifier at various thresholds.
+* **PR**: Precision-Recall: A curve comparing the precision (y-axis) as a function of the recall (x-axis) for a given classifier at various thresholds.
 
 ## How does the resampling work?
 
@@ -26,7 +26,7 @@ The solution is to:
 
 ## Usage
 
-A snippet from *demo.ipynb*:
+A snippet from [demo.ipynb](demo.ipynb):
 
 ```python
 from roc2pr import PRCurve
