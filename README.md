@@ -1,20 +1,28 @@
 # roc2pr
 
-Resample and interconvert curves between ROC and PR space!
-The only requirement is to know the proportion of actual positives to actual negatives in the dataset!
+Resample and interconvert curves between ROC and PR space!  
+The only requirement is to know the proportion of actual positives to actual negatives in the dataset.
 
 ## Terminology
 
-* ROC: Reciever Operating Characteristic.
-* PR: Precision-Recall.
-* TP: True Positives: Actual positives labelled correctly.
-* TN: True Negatives: Actual negatives labelled correctly.
-* FP: False Positives: Actual negatives labelled incorrectly as positive.
-* FN: False Negatives: Actual positives labelled incorrectly as negative.
-* TPR: True Positive Rate = TP/(TP + FN).
-* FPR: False Positive Rate = FP/(FP + TN).
-* Precision: TP/(TP + FP).
-* Recall: True Positive Rate = TP/(TP + FN).
+* **ROC**: Reciever Operating Characteristic.
+* **PR**: Precision-Recall.
+* **TP**: True Positives: Actual positives labelled correctly.
+* **TN**: True Negatives: Actual negatives labelled correctly.
+* **FP**: False Positives: Actual negatives labelled incorrectly as positive.
+* **FN**: False Negatives: Actual positives labelled incorrectly as negative.
+* **TPR**: True Positive Rate = TP/(TP + FN).
+* **FPR**: False Positive Rate = FP/(FP + TN).
+* **Precision**: TP/(TP + FP).
+* **Recall**: True Positive Rate = TP/(TP + FN).
+
+## How does the resampling work?
+
+In ROC space, linear interpolation is valid. However, this is not true in PR space.
+The solution is to:
+* Convert a PR curve to its corresponding ROC curve, using the duality between the PR and ROC spaces.
+* Interpolate the ROC curve. Here, we interpolate at equally spaced values of FPR, linearly interpolating the TPR values between adjacent points.
+* Convert the interpolated ROC curve back to PR space, giving us an interpolated PR curve.
 
 ## Usage
 
@@ -53,11 +61,3 @@ pr_reconverted = roc.to_pr()
 # This should pass.
 assert allclose(pr_reconverted.points(), pr.points())
 ```
-
-# How does the resampling work?
-
-In ROC space, linear interpolation is valid. However, this is not true in PR space.
-The solution is to:
-* Convert a PR curve to its corresponding ROC curve, using the duality between the PR and ROC spaces.
-* Interpolate the ROC curve. Here, we interpolate at equally spaced values of FPR, linearly interpolating the TPR values between adjacent points.
-* Convert the interpolated ROC curve back to PR space, giving us an interpolated PR curve.
