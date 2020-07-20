@@ -6,6 +6,21 @@ import numpy as np
 import pytest
 from pytest import approx
 
+def test_roc_curve_conversion():
+    fpr_vals = [40/60, 45/60]
+    tpr_vals = [100/120, 110/120]
+    points = zip(fpr_vals, tpr_vals)
+    roc_curve = ROCCurve(points, 120/60, label='Test ROC Curve')
+
+    pr_curve = roc_curve.to_pr()
+    rec_actual = [point[0] for point in pr_curve.points()]
+    prec_actual = [point[1] for point in pr_curve.points()]
+    rec_expected = [100/120, 110/120]
+    prec_expected = [100/140, 110/155]
+
+    assert prec_actual == approx(prec_expected)
+    assert rec_actual == approx(rec_expected)
+
 def test_roc_curve_reconversion():
     fpr_vals = [0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
     tpr_vals = [0.5, 0.375, 0.318, 0.286, 0.265, 0.250]
