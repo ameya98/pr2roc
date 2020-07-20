@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/ameya98/roc2pr/master/images/roc2pr.svg">
 </p>
 
-Resample correctly and interconvert classifier performance between ROC and PR space!  
+Resample classifier precision-recall curves correctly by interconverting between ROC and PR space!  
 The only requirement is to know the proportion of actual positives to actual negatives in the dataset, which depends only on the true labels.
 
 ## Installation
