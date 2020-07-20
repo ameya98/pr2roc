@@ -1,6 +1,6 @@
 from __future__ import division
 
-from roc2pr import Curve
+from pr2roc import Curve
 
 import numpy as np
 import pytest

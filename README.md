@@ -1,10 +1,10 @@
-# roc2pr [![codecov](https://codecov.io/gh/ameya98/roc2pr/branch/master/graph/badge.svg)](https://codecov.io/gh/ameya98/roc2pr)
+# pr2roc [![codecov](https://codecov.io/gh/ameya98/pr2roc/branch/master/graph/badge.svg)](https://codecov.io/gh/ameya98/pr2roc)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ameya98/roc2pr/master/images/roc2pr.svg">
+  <img src="https://raw.githubusercontent.com/ameya98/pr2roc/master/images/pr2roc.svg">
 </p>
 
-Resample classifier precision-recall curves correctly by interconverting between ROC and PR space!  
+Resample classifier precision-recall curves correctly by interconverting between PR and ROC space!  
 The only requirement is to know the proportion of actual positives to actual negatives in the dataset, which depends only on the true labels.
 
 ## Installation
@@ -14,9 +14,9 @@ You will need to install *numpy* first:
 pip install numpy
 ```
 
-Then, install *roc2pr* from this GitHub repository directly:
+Then, install *pr2roc* from this GitHub repository directly:
 ```bash
-pip install git+https://github.com/ameya98/roc2pr
+pip install git+https://github.com/ameya98/pr2roc
 ```
 
 Tested with Python 2.7 and 3.5.
@@ -36,10 +36,10 @@ Tested with Python 2.7 and 3.5.
 
 ## Usage
 
-Modified from [demo.ipynb](https://nbviewer.jupyter.org/github/ameya98/roc2pr/blob/master/demo.ipynb):
+Modified from [demo.ipynb](https://nbviewer.jupyter.org/github/ameya98/pr2roc/blob/master/demo.ipynb):
 
 ```python
-from roc2pr import PRCurve
+from pr2roc import PRCurve
 from numpy import allclose
 
 # Define points on precision-recall curve.

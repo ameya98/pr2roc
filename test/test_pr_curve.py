@@ -1,6 +1,6 @@
 from __future__ import division
 
-from roc2pr import PRCurve
+from pr2roc import PRCurve
 
 import numpy as np
 import pytest
