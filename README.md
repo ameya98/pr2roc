@@ -4,8 +4,8 @@
   <img src="https://raw.githubusercontent.com/ameya98/roc2pr/master/images/roc2pr.svg">
 </p>
 
-Resample and interconvert classifier performance between ROC and PR space!  
-The only requirement is to know the proportion of actual positives to actual negatives in the dataset.
+Resample correctly and interconvert classifier performance between ROC and PR space!  
+The only requirement is to know the proportion of actual positives to actual negatives in the dataset, which depends only on the true labels.
 
 ## Installation
 
@@ -33,20 +33,6 @@ Tested with Python 2.7 and 3.5.
 * **Recall**: True Positive Rate = TP/(TP + FN).
 * **ROC**: Reciever Operating Characteristic: A curve comparing the TPR (y-axis) as a function of the FPR (x-axis) for a given classifier at various thresholds.
 * **PR**: Precision-Recall: A curve comparing the precision (y-axis) as a function of the recall (x-axis) for a given classifier at various thresholds.
-
-## How does the resampling work?
-
-There is a fundamental duality between ROC space and PR space. For a fixed dataset (specifically, a fixed ratio of actual positives to actual negatives), we can convert a ROC curve to a PR curve, and vice versa.
-
-In ROC space, linear interpolation between points on a 'discrete' ROC curve is valid, because all points on the convex hull of a ROC curve are attainable. However, linear interpolation is not justified in PR space.
-
-The solution is to:
-* Convert a PR curve to its corresponding ROC curve, using the duality between the PR and ROC spaces.
-* Interpolate the ROC curve. Here, we interpolate at equally spaced values of FPR, linearly interpolating the TPR values between adjacent points.
-* Convert the interpolated ROC curve back to PR space, giving us an interpolated PR curve.
-
-See the reference below for a more detailed description of the relationship between ROC curves and PR curves.  
-This package is essentially an implementation of the methods in the reference.
 
 ## Usage
 
@@ -82,6 +68,20 @@ pr_reconverted = roc.to_pr()
 # This should pass.
 assert allclose(pr_reconverted.points(), pr.points())
 ```
+
+## How does the resampling work?
+
+There is a fundamental duality between ROC space and PR space. For a fixed dataset (specifically, a fixed ratio of actual positives to actual negatives), we can convert a ROC curve to a PR curve, and vice versa.
+
+In ROC space, linear interpolation between points on a 'discrete' ROC curve is valid, because all points on the convex hull of a ROC curve are attainable. However, linear interpolation is not justified in PR space, because it over-estimates the performance of the classifier.
+
+The solution is to:
+* Convert a PR curve to its corresponding ROC curve, using the duality between the PR and ROC spaces.
+* Interpolate the ROC curve. Here, we interpolate at equally spaced values of FPR, linearly interpolating the TPR values between adjacent points.
+* Convert the interpolated ROC curve back to PR space, giving us an interpolated PR curve.
+
+See the reference below for a more detailed description of the relationship between ROC curves and PR curves.  
+This package is essentially an implementation of the methods in the reference.
 
 ## References
 
