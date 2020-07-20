@@ -6,6 +6,21 @@ import numpy as np
 import pytest
 from pytest import approx
 
+def test_pr_curve_conversion():
+    rec_vals = [100/120, 110/120]
+    prec_vals = [100/140, 110/155]
+    points = zip(rec_vals, prec_vals)
+    pr_curve = PRCurve(points, 120/60, label='Test PR Curve')
+
+    roc_curve = pr_curve.to_roc()
+    fpr_actual = [point[0] for point in roc_curve.points()]
+    tpr_actual = [point[1] for point in roc_curve.points()]
+    fpr_expected = [40/60, 45/60]
+    tpr_expected = [100/120, 110/120]
+
+    assert tpr_actual == approx(tpr_expected)
+    assert fpr_actual == approx(fpr_expected)
+
 def test_pr_curve_reconversion():
     rec_vals = [0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
     prec_vals = [0.5, 0.375, 0.318, 0.286, 0.265, 0.250]
@@ -100,3 +115,4 @@ def test_pr_curve_resample():
 
     assert rec_vals_sampled == approx(rec_vals_expected, abs=1e-3)
     assert prec_vals_sampled == approx(prec_vals_expected, abs=1e-3)
+
